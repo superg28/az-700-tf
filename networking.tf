@@ -50,3 +50,30 @@ resource "azurerm_subnet" "subnet-two" {
   virtual_network_name = azurerm_virtual_network.vnet-two.name
   address_prefixes     = ["10.0.2.0/24"]
 }
+
+# Public IPs
+resource "azurerm_public_ip" "pip-one" {
+  name                = "vm-one-pip"
+  resource_group_name = azurerm_resource_group.networking-rg.name
+  location            = azurerm_resource_group.networking-rg.location
+  allocation_method   = "Dynamic"
+}
+
+# resource "azurerm_public_ip" "pip-two" {
+
+# }
+
+# Peering
+resource "azurerm_virtual_network_peering" "one2two" {
+  name                      = "one-2-two"
+  resource_group_name       = azurerm_resource_group.networking-rg.name
+  virtual_network_name      = azurerm_virtual_network.vnet-one.name
+  remote_virtual_network_id = azurerm_virtual_network.vnet-two.id
+}
+
+resource "azurerm_virtual_network_peering" "two2one" {
+  name                      = "two-2-one"
+  resource_group_name       = azurerm_resource_group.networking-rg.name
+  virtual_network_name      = azurerm_virtual_network.vnet-two.name
+  remote_virtual_network_id = azurerm_virtual_network.vnet-one.id
+}
