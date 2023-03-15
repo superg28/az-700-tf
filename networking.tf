@@ -59,21 +59,58 @@ resource "azurerm_public_ip" "pip-one" {
   allocation_method   = "Dynamic"
 }
 
-# resource "azurerm_public_ip" "pip-two" {
+resource "azurerm_public_ip" "pip-two" {
+  name                = "vm-two-pip"
+  resource_group_name = azurerm_resource_group.networking-rg.name
+  location            = azurerm_resource_group.networking-rg.location
+  allocation_method   = "Dynamic"
+}
+
+# Peering
+# resource "azurerm_virtual_network_peering" "one2two" {
+#   name                      = "one-2-two"
+#   resource_group_name       = azurerm_resource_group.networking-rg.name
+#   virtual_network_name      = azurerm_virtual_network.vnet-one.name
+#   remote_virtual_network_id = azurerm_virtual_network.vnet-two.id
+# }
+
+# resource "azurerm_virtual_network_peering" "two2one" {
+#   name                      = "two-2-one"
+#   resource_group_name       = azurerm_resource_group.networking-rg.name
+#   virtual_network_name      = azurerm_virtual_network.vnet-two.name
+#   remote_virtual_network_id = azurerm_virtual_network.vnet-one.id
+# }
+
+# VNet Gateways
+# resource "azurerm_virtual_network_gateway" "vngwone" {
+#   name                = "vnet-one-gateway"
+#   resource_group_name = azurerm_resource_group.networking-rg.name
+#   location            = azurerm_resource_group.networking-rg.location
+
+#   sku  = ""
+#   type = ""
+#   ip_configuration {
+
+#   }
+# }
+
+# resource "azurerm_virtual_network_gateway" "vngwtwo" {
+#   name                = "vnet-two-gateway"
+#   resource_group_name = azurerm_resource_group.networking-rg.name
+#   location            = azurerm_resource_group.networking-rg.location
+
+#   sku  = ""
+#   type = ""
+#   ip_configuration {
+
+#   }
+# }
+
+# VNet Connections
+# resource "azurerm_virtual_network_gateway_connection" "vngwone-to-vngwtwo" {
 
 # }
 
-# Peering
-resource "azurerm_virtual_network_peering" "one2two" {
-  name                      = "one-2-two"
-  resource_group_name       = azurerm_resource_group.networking-rg.name
-  virtual_network_name      = azurerm_virtual_network.vnet-one.name
-  remote_virtual_network_id = azurerm_virtual_network.vnet-two.id
-}
+# resource "azurerm_virtual_network_gateway_connection" "vngwtwo-to-vngwone" {
 
-resource "azurerm_virtual_network_peering" "two2one" {
-  name                      = "two-2-one"
-  resource_group_name       = azurerm_resource_group.networking-rg.name
-  virtual_network_name      = azurerm_virtual_network.vnet-two.name
-  remote_virtual_network_id = azurerm_virtual_network.vnet-one.id
-}
+# }
