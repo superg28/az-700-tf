@@ -1,11 +1,11 @@
 terraform {
-  # cloud {
-  #   organization = "value"
+  cloud {
+    organization = "8bit-solutions"
 
-  #   workspaces {
-  #     name = "az-700-cert"
-  #   }
-  # }
+    workspaces {
+      name = "az-700-cert"
+    }
+  }
 
   required_providers {
     azurerm = {
