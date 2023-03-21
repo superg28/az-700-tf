@@ -1,4 +1,5 @@
 terraform {
+  /*
   cloud {
     organization = "8bit-solutions"
 
@@ -6,7 +7,7 @@ terraform {
       name = "az-700-cert"
     }
   }
-
+  */
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
