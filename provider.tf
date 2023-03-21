@@ -1,4 +1,12 @@
 terraform {
+  # cloud {
+  #   organization = "value"
+
+  #   workspaces {
+  #     name = "az-700-cert"
+  #   }
+  # }
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"

@@ -28,12 +28,12 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
   name                = "VM-one"
   resource_group_name = azurerm_resource_group.networking-rg.name
   location            = azurerm_resource_group.networking-rg.location
-  size                = "Standard_F2"
+  size                = var.linux_vm_size
 
-  admin_username = "superg28"
+  admin_username = var.linux_vm_username
 
   admin_ssh_key {
-    username   = "superg28"
+    username   = var.linux_vm_username
     public_key = file("~/.ssh/id_rsa.pub")
   }
 
@@ -59,12 +59,12 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
   name                = "VM-two"
   resource_group_name = azurerm_resource_group.networking-rg.name
   location            = azurerm_resource_group.networking-rg.location
-  size                = "Standard_F2"
+  size                = var.linux_vm_size
 
-  admin_username = "superg28"
+  admin_username = var.linux_vm_username
 
   admin_ssh_key {
-    username   = "superg28"
+    username   = var.linux_vm_username
     public_key = file("~/.ssh/id_rsa.pub")
   }
 

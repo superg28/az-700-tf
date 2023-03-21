@@ -1,4 +1,5 @@
 .envrc
 .terraform
 .terraform.lock.hcl
+*.tfvars
 plan.out
