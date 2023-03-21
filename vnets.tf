@@ -51,19 +51,20 @@ resource "azurerm_subnet" "subnet-two" {
   address_prefixes     = ["10.1.1.0/24"]
 }
 
-resource "azurerm_subnet" "gateway-subnet-one" {
-  name                 = "GatewaySubnet"
-  resource_group_name  = azurerm_resource_group.networking-rg.name
-  virtual_network_name = azurerm_virtual_network.vnet-one.name
-  address_prefixes     = ["10.0.2.0/24"]
-}
+# GW subnets
+# resource "azurerm_subnet" "gateway-subnet-one" {
+#   name                 = "GatewaySubnet"
+#   resource_group_name  = azurerm_resource_group.networking-rg.name
+#   virtual_network_name = azurerm_virtual_network.vnet-one.name
+#   address_prefixes     = ["10.0.2.0/24"]
+# }
 
-resource "azurerm_subnet" "gateway-subnet-two" {
-  name                 = "GatewaySubnet"
-  resource_group_name  = azurerm_resource_group.networking-rg.name
-  virtual_network_name = azurerm_virtual_network.vnet-two.name
-  address_prefixes     = ["10.1.2.0/24"]
-}
+# resource "azurerm_subnet" "gateway-subnet-two" {
+#   name                 = "GatewaySubnet"
+#   resource_group_name  = azurerm_resource_group.networking-rg.name
+#   virtual_network_name = azurerm_virtual_network.vnet-two.name
+#   address_prefixes     = ["10.1.2.0/24"]
+# }
 
 # Public IPs
 # for VMs
