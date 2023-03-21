@@ -1,4 +1,4 @@
-
+/*
 # VM setups
 resource "azurerm_network_interface" "nic-one" {
   name                = "vm-one-nic"
@@ -12,7 +12,7 @@ resource "azurerm_network_interface" "nic-one" {
     public_ip_address_id          = azurerm_public_ip.pip-one.id
   }
 }
-/*
+
 resource "azurerm_network_interface" "nic-two" {
   name                = "vm-two-nic"
   location            = azurerm_resource_group.networking-rg.location
@@ -25,7 +25,7 @@ resource "azurerm_network_interface" "nic-two" {
     public_ip_address_id          = azurerm_public_ip.pip-two.id
   }
 }
-*/
+
 resource "azurerm_linux_virtual_machine" "vm-one" {
   name                = "VM-one"
   resource_group_name = azurerm_resource_group.networking-rg.name
@@ -56,7 +56,7 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
   }
 
 }
-/*
+
 resource "azurerm_linux_virtual_machine" "vm-two" {
   name                = "VM-two"
   resource_group_name = azurerm_resource_group.networking-rg.name
