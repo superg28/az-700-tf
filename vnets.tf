@@ -1,3 +1,4 @@
+/*
 # Private DNS zone
 resource "azurerm_private_dns_zone" "my-private-dns" {
   name                = "my-network.net"
@@ -111,3 +112,4 @@ resource "azurerm_public_ip" "vnet-pip-two" {
 #   virtual_network_name      = azurerm_virtual_network.vnet-two.name
 #   remote_virtual_network_id = azurerm_virtual_network.vnet-one.id
 # }
+*/

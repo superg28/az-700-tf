@@ -1,4 +1,5 @@
-# WAN and hub set up
+
+/*# WAN and hub set up
 resource "azurerm_virtual_wan" "az_vwan" {
   name                = "central-wan"
   location            = azurerm_resource_group.networking-rg.location
@@ -25,3 +26,4 @@ resource "azurerm_virtual_hub_connection" "VNet2toHub" {
   virtual_hub_id            = azurerm_virtual_hub.az_vnet_hub.id
   remote_virtual_network_id = azurerm_virtual_network.vnet-two.id
 }
+*/

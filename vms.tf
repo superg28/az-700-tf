@@ -1,3 +1,5 @@
+/*
+# VM setups
 resource "azurerm_network_interface" "nic-one" {
   name                = "vm-one-nic"
   location            = azurerm_resource_group.networking-rg.location
@@ -34,7 +36,7 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
 
   admin_ssh_key {
     username   = var.linux_vm_username
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = var.ssh_pub_key
   }
 
   network_interface_ids = [
@@ -65,7 +67,7 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
 
   admin_ssh_key {
     username   = var.linux_vm_username
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = var.ssh_pub_key
   }
 
   network_interface_ids = [
@@ -85,3 +87,4 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
   }
 
 }
+*/

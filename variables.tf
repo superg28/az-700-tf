@@ -9,3 +9,9 @@ variable "linux_vm_username" {
   description = "username used on the vm"
   type        = string
 }
+
+variable "ssh_pub_key" {
+  description = "public key used for the vms"
+  type        = string
+  sensitive   = true
+}
