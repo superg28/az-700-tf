@@ -21,7 +21,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "vnet-two-link" {
   virtual_network_id    = azurerm_virtual_network.vnet-two.id
   registration_enabled  = true
 }
-
+*/
 # VNets
 resource "azurerm_virtual_network" "vnet-one" {
   name                = "test-vnet-one"
@@ -29,7 +29,7 @@ resource "azurerm_virtual_network" "vnet-one" {
   resource_group_name = azurerm_resource_group.networking-rg.name
   address_space       = ["10.0.0.0/16"]
 }
-
+/*
 resource "azurerm_virtual_network" "vnet-two" {
   name                = "test-vnet-two"
   location            = azurerm_resource_group.networking-rg.location
@@ -51,21 +51,21 @@ resource "azurerm_subnet" "subnet-two" {
   virtual_network_name = azurerm_virtual_network.vnet-two.name
   address_prefixes     = ["10.1.1.0/24"]
 }
-
+*/
 # GW subnets
-# resource "azurerm_subnet" "gateway-subnet-one" {
-#   name                 = "GatewaySubnet"
-#   resource_group_name  = azurerm_resource_group.networking-rg.name
-#   virtual_network_name = azurerm_virtual_network.vnet-one.name
-#   address_prefixes     = ["10.0.2.0/24"]
-# }
-
-# resource "azurerm_subnet" "gateway-subnet-two" {
-#   name                 = "GatewaySubnet"
-#   resource_group_name  = azurerm_resource_group.networking-rg.name
-#   virtual_network_name = azurerm_virtual_network.vnet-two.name
-#   address_prefixes     = ["10.1.2.0/24"]
-# }
+resource "azurerm_subnet" "gateway-subnet-one" {
+  name                 = "GatewaySubnet"
+  resource_group_name  = azurerm_resource_group.networking-rg.name
+  virtual_network_name = azurerm_virtual_network.vnet-one.name
+  address_prefixes     = ["10.0.2.0/27"]
+}
+/*
+resource "azurerm_subnet" "gateway-subnet-two" {
+  name                 = "GatewaySubnet"
+  resource_group_name  = azurerm_resource_group.networking-rg.name
+  virtual_network_name = azurerm_virtual_network.vnet-two.name
+  address_prefixes     = ["10.1.2.0/24"]
+}
 
 # Public IPs
 # for VMs
@@ -82,7 +82,7 @@ resource "azurerm_public_ip" "pip-two" {
   location            = azurerm_resource_group.networking-rg.location
   allocation_method   = "Dynamic"
 }
-
+*/
 # for VNet GW
 resource "azurerm_public_ip" "vnet-pip-one" {
   name                = "vnet-one-pip"
@@ -90,26 +90,27 @@ resource "azurerm_public_ip" "vnet-pip-one" {
   location            = azurerm_resource_group.networking-rg.location
   allocation_method   = "Dynamic"
 }
-
+/*
 resource "azurerm_public_ip" "vnet-pip-two" {
   name                = "vnet-two-pip"
   resource_group_name = azurerm_resource_group.networking-rg.name
   location            = azurerm_resource_group.networking-rg.location
   allocation_method   = "Dynamic"
 }
-
+*/
+/*
 # Peering
-# resource "azurerm_virtual_network_peering" "one2two" {
-#   name                      = "one-2-two"
-#   resource_group_name       = azurerm_resource_group.networking-rg.name
-#   virtual_network_name      = azurerm_virtual_network.vnet-one.name
-#   remote_virtual_network_id = azurerm_virtual_network.vnet-two.id
-# }
+resource "azurerm_virtual_network_peering" "one2two" {
+  name                      = "one-2-two"
+  resource_group_name       = azurerm_resource_group.networking-rg.name
+  virtual_network_name      = azurerm_virtual_network.vnet-one.name
+  remote_virtual_network_id = azurerm_virtual_network.vnet-two.id
+}
 
-# resource "azurerm_virtual_network_peering" "two2one" {
-#   name                      = "two-2-one"
-#   resource_group_name       = azurerm_resource_group.networking-rg.name
-#   virtual_network_name      = azurerm_virtual_network.vnet-two.name
-#   remote_virtual_network_id = azurerm_virtual_network.vnet-one.id
-# }
+resource "azurerm_virtual_network_peering" "two2one" {
+  name                      = "two-2-one"
+  resource_group_name       = azurerm_resource_group.networking-rg.name
+  virtual_network_name      = azurerm_virtual_network.vnet-two.name
+  remote_virtual_network_id = azurerm_virtual_network.vnet-one.id
+}
 */

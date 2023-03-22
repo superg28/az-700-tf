@@ -30,3 +30,6 @@ override.tf.json
 
 .envrc
 .env
+
+# ignore local file
+*.lock.*

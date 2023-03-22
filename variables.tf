@@ -1,7 +1,7 @@
 # Resource group
 variable "rg_location" {
   description = "location to use for the resource group"
-  default = "southafricanorth"
+  default     = "southafricanorth"
 }
 # VM variables
 variable "linux_vm_size" {
