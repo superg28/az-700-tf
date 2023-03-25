@@ -75,7 +75,7 @@ resource "azurerm_public_ip" "pip-one" {
   name                = "vm-one-pip"
   resource_group_name = azurerm_resource_group.networking-rg.name
   location            = azurerm_resource_group.networking-rg.location
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
   sku                 = "Standard"
   sku_tier            = "Regional"
 }
