@@ -1,4 +1,4 @@
-/*
+
 # VM setups
 resource "azurerm_network_interface" "nic-one" {
   name                = "vm-one-nic"
@@ -9,7 +9,7 @@ resource "azurerm_network_interface" "nic-one" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet-one.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.pip-one.id
+    # public_ip_address_id          = azurerm_public_ip.pip-one.id
   }
 }
 
@@ -20,9 +20,9 @@ resource "azurerm_network_interface" "nic-two" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.subnet-two.id
+    subnet_id                     = azurerm_subnet.subnet-one.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.pip-two.id
+    # public_ip_address_id          = azurerm_public_ip.pip-two.id
   }
 }
 
@@ -87,4 +87,3 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
   }
 
 }
-*/
