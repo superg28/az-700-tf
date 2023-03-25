@@ -45,5 +45,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_pip_one_ip"></a> [pip\_one\_ip](#output\_pip\_one\_ip) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
