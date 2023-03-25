@@ -76,6 +76,8 @@ resource "azurerm_public_ip" "pip-one" {
   resource_group_name = azurerm_resource_group.networking-rg.name
   location            = azurerm_resource_group.networking-rg.location
   allocation_method   = "Dynamic"
+  sku                 = "Standard"
+  sku_tier            = "Regional"
 }
 
 /*
