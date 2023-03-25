@@ -36,7 +36,7 @@ resource "azurerm_virtual_network" "vnet-two" {
   resource_group_name = azurerm_resource_group.networking-rg.name
   address_space       = ["10.1.0.0/16"]
 }
-
+*/
 # Subnets
 resource "azurerm_subnet" "subnet-one" {
   name                 = "test-subnet-one"
@@ -44,7 +44,7 @@ resource "azurerm_subnet" "subnet-one" {
   virtual_network_name = azurerm_virtual_network.vnet-one.name
   address_prefixes     = ["10.0.1.0/24"]
 }
-
+/*
 resource "azurerm_subnet" "subnet-two" {
   name                 = "test-subnet-two"
   resource_group_name  = azurerm_resource_group.networking-rg.name
@@ -52,6 +52,7 @@ resource "azurerm_subnet" "subnet-two" {
   address_prefixes     = ["10.1.1.0/24"]
 }
 */
+/*
 # GW subnets
 resource "azurerm_subnet" "gateway-subnet-one" {
   name                 = "GatewaySubnet"
@@ -59,6 +60,7 @@ resource "azurerm_subnet" "gateway-subnet-one" {
   virtual_network_name = azurerm_virtual_network.vnet-one.name
   address_prefixes     = ["10.0.2.0/27"]
 }
+*/
 /*
 resource "azurerm_subnet" "gateway-subnet-two" {
   name                 = "GatewaySubnet"
@@ -66,7 +68,7 @@ resource "azurerm_subnet" "gateway-subnet-two" {
   virtual_network_name = azurerm_virtual_network.vnet-two.name
   address_prefixes     = ["10.1.2.0/24"]
 }
-
+*/
 # Public IPs
 # for VMs
 resource "azurerm_public_ip" "pip-one" {
@@ -75,6 +77,7 @@ resource "azurerm_public_ip" "pip-one" {
   location            = azurerm_resource_group.networking-rg.location
   allocation_method   = "Dynamic"
 }
+
 /*
 resource "azurerm_public_ip" "pip-two" {
   name                = "vm-two-pip"
@@ -83,14 +86,16 @@ resource "azurerm_public_ip" "pip-two" {
   allocation_method   = "Dynamic"
 }
 */
-# for VNet GW
+/*
+# Public IPs
+# for VNet GW and LB
 resource "azurerm_public_ip" "vnet-pip-one" {
   name                = "vnet-one-pip"
   resource_group_name = azurerm_resource_group.networking-rg.name
   location            = azurerm_resource_group.networking-rg.location
   allocation_method   = "Dynamic"
 }
-/*
+
 resource "azurerm_public_ip" "vnet-pip-two" {
   name                = "vnet-two-pip"
   resource_group_name = azurerm_resource_group.networking-rg.name

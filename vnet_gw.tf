@@ -1,16 +1,16 @@
-
+/*
 # VNet Gateways
 resource "azurerm_virtual_network_gateway" "vngwone" {
   name                = "vnet-one-gateway"
   resource_group_name = azurerm_resource_group.networking-rg.name
   location            = azurerm_resource_group.networking-rg.location
 
-  /*
+
   # User for VPN
-  sku      = "VpnGw1"
-  type     = "Vpn"
-  vpn_type = "RouteBased"
-  */
+  # sku      = "VpnGw1"
+  # type     = "Vpn"
+  # vpn_type = "RouteBased"
+
 
   # Used for ExpressRoute
   sku  = "Standard"
@@ -21,7 +21,7 @@ resource "azurerm_virtual_network_gateway" "vngwone" {
     public_ip_address_id = azurerm_public_ip.vnet-pip-one.id
   }
 }
-/*
+
 resource "azurerm_virtual_network_gateway" "vngwtwo" {
   name                = "vnet-two-gateway"
   resource_group_name = azurerm_resource_group.networking-rg.name
