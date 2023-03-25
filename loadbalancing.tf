@@ -22,13 +22,13 @@ resource "azurerm_lb_backend_address_pool" "lb_backend_pool" {
 # add the NICs (VM) IPs to the pool
 resource "azurerm_network_interface_backend_address_pool_association" "niconetolbnp" {
   network_interface_id    = azurerm_network_interface.nic-one.id
-  ip_configuration_name   = "nic_one_to_lb_np"
+  ip_configuration_name   = "internal"
   backend_address_pool_id = azurerm_lb_backend_address_pool.lb_backend_pool.id
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "nictwotolbnp" {
   network_interface_id    = azurerm_network_interface.nic-two.id
-  ip_configuration_name   = "nic_two_to_lb_np"
+  ip_configuration_name   = "internal"
   backend_address_pool_id = azurerm_lb_backend_address_pool.lb_backend_pool.id
 }
 
