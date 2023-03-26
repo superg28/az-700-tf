@@ -1,4 +1,5 @@
 # Load balancing setup
+/*
 resource "azurerm_lb" "loadbalancer" {
   name                = "az-700-lb"
   location            = azurerm_resource_group.networking-rg.location
@@ -52,3 +53,4 @@ resource "azurerm_lb_rule" "lb_rule" {
     azurerm_lb_backend_address_pool.lb_backend_pool.id
   ]
 }
+*/
