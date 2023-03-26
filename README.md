@@ -19,16 +19,11 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azurerm_lb.loadbalancer](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/lb) | resource |
-| [azurerm_lb_backend_address_pool.lb_backend_pool](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/lb_backend_address_pool) | resource |
-| [azurerm_lb_probe.lb_probe](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/lb_probe) | resource |
-| [azurerm_lb_rule.lb_rule](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/lb_rule) | resource |
+| [azurerm_application_gateway.app-gw-test](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/application_gateway) | resource |
 | [azurerm_linux_virtual_machine.vm-one](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/linux_virtual_machine) | resource |
 | [azurerm_linux_virtual_machine.vm-two](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/linux_virtual_machine) | resource |
 | [azurerm_network_interface.nic-one](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/network_interface) | resource |
 | [azurerm_network_interface.nic-two](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/network_interface) | resource |
-| [azurerm_network_interface_backend_address_pool_association.niconetolbnp](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/network_interface_backend_address_pool_association) | resource |
-| [azurerm_network_interface_backend_address_pool_association.nictwotolbnp](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/network_interface_backend_address_pool_association) | resource |
 | [azurerm_public_ip.pip-one](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/public_ip) | resource |
 | [azurerm_resource_group.networking-rg](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/resource_group) | resource |
 | [azurerm_subnet.subnet-one](https://registry.terraform.io/providers/hashicorp/azurerm/3.47.0/docs/resources/subnet) | resource |
@@ -45,5 +40,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_pip_one_ip"></a> [pip\_one\_ip](#output\_pip\_one\_ip) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

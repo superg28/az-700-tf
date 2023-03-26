@@ -55,6 +55,10 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
     version   = "latest"
   }
 
+  provisioner "remote-exec" {
+    script = "./vm_prov_scripts.sh VM01"
+  }
+
 }
 
 resource "azurerm_linux_virtual_machine" "vm-two" {
@@ -84,6 +88,10 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
     publisher = "Canonical"
     sku       = "18.04-LTS"
     version   = "latest"
+  }
+
+  provisioner "remote-exec" {
+    script = "./vm_prov_scripts.sh VM02"
   }
 
 }
