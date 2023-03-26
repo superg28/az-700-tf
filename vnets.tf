@@ -49,7 +49,7 @@ resource "azurerm_subnet" "subnet-two" {
   name                 = "test-subnet-two"
   resource_group_name  = azurerm_resource_group.networking-rg.name
   virtual_network_name = azurerm_virtual_network.vnet-two.name
-  address_prefixes     = ["10.1.1.0/24"]
+  address_prefixes     = ["10.0.2.0/24"]
 }
 */
 /*
@@ -75,19 +75,19 @@ resource "azurerm_public_ip" "pip-one" {
   name                = "vm-one-pip"
   resource_group_name = azurerm_resource_group.networking-rg.name
   location            = azurerm_resource_group.networking-rg.location
-  allocation_method   = "Static"
-  sku                 = "Standard"
-  sku_tier            = "Regional"
+  allocation_method   = "Dynamic"
+  # sku                 = "Standard"
+  # sku_tier            = "Regional"
 }
 
-/*
+
 resource "azurerm_public_ip" "pip-two" {
   name                = "vm-two-pip"
   resource_group_name = azurerm_resource_group.networking-rg.name
   location            = azurerm_resource_group.networking-rg.location
   allocation_method   = "Dynamic"
 }
-*/
+
 /*
 # Public IPs
 # for VNet GW and LB
@@ -105,6 +105,12 @@ resource "azurerm_public_ip" "vnet-pip-two" {
   allocation_method   = "Dynamic"
 }
 */
+resource "azurerm_public_ip" "app-gw-pip" {
+  name                = "appgwpip"
+  resource_group_name = azurerm_resource_group.networking-rg.name
+  location            = azurerm_resource_group.networking-rg.location
+  allocation_method   = "Dynamic"
+}
 /*
 # Peering
 resource "azurerm_virtual_network_peering" "one2two" {
