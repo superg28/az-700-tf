@@ -64,8 +64,16 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
     host     = self.public_ip_address
   }
 
+  provisioner "file" {
+    source      = "./vm_prov_scripts/install_nginx.sh"
+    destination = "/tmp/install_nginx.sh"
+  }
+
   provisioner "remote-exec" {
-    script = "./vm_prov_scripts.sh VM01"
+    inline = [
+      "chmod +x /tmp/install_nginx.sh",
+      "/tmp/install_nginx.sh VM01"
+    ]
   }
 
 }
@@ -108,8 +116,16 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
     host     = self.public_ip_address
   }
 
+  provisioner "file" {
+    source      = "./vm_prov_scripts/install_nginx.sh"
+    destination = "/tmp/install_nginx.sh"
+  }
+
   provisioner "remote-exec" {
-    script = "./vm_prov_scripts.sh VM02"
+    inline = [
+      "chmod +x /tmp/install_nginx.sh",
+      "/tmp/install_nginx.sh VM02"
+    ]
   }
 
 }
