@@ -9,7 +9,7 @@ resource "azurerm_network_interface" "nic-one" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet-one.id
     private_ip_address_allocation = "Dynamic"
-    # public_ip_address_id          = azurerm_public_ip.pip-one.id
+    public_ip_address_id          = azurerm_public_ip.pip-one.id
   }
 }
 
@@ -22,7 +22,7 @@ resource "azurerm_network_interface" "nic-two" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet-one.id
     private_ip_address_allocation = "Dynamic"
-    # public_ip_address_id          = azurerm_public_ip.pip-two.id
+    public_ip_address_id          = azurerm_public_ip.pip-two.id
   }
 }
 
@@ -33,6 +33,8 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
   size                = var.linux_vm_size
 
   admin_username = var.linux_vm_username
+
+  admin_password = var.linux_vm_admin_pass
 
   admin_ssh_key {
     username   = var.linux_vm_username
@@ -55,6 +57,13 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
     version   = "latest"
   }
 
+  connection {
+    type     = "ssh"
+    user     = var.linux_vm_username
+    password = var.linux_vm_admin_pass
+    host     = self.public_ip_address
+  }
+
   provisioner "remote-exec" {
     script = "./vm_prov_scripts.sh VM01"
   }
@@ -68,6 +77,8 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
   size                = var.linux_vm_size
 
   admin_username = var.linux_vm_username
+
+  admin_password = var.linux_vm_admin_pass
 
   admin_ssh_key {
     username   = var.linux_vm_username
@@ -88,6 +99,13 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
     publisher = "Canonical"
     sku       = "18.04-LTS"
     version   = "latest"
+  }
+
+  connection {
+    type     = "ssh"
+    user     = var.linux_vm_username
+    password = var.linux_vm_admin_pass
+    host     = self.public_ip_address
   }
 
   provisioner "remote-exec" {
