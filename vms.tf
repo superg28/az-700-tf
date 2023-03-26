@@ -68,6 +68,7 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
     source      = "./vm_prov_scripts/install_nginx.sh"
     destination = "/tmp/install_nginx.sh"
   }
+
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/install_nginx.sh",
@@ -119,6 +120,7 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
     source      = "./vm_prov_scripts/install_nginx.sh"
     destination = "/tmp/install_nginx.sh"
   }
+
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/install_nginx.sh",
