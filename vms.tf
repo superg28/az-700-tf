@@ -36,11 +36,6 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
 
   admin_password = var.linux_vm_admin_pass
 
-  admin_ssh_key {
-    username   = var.linux_vm_username
-    public_key = var.ssh_pub_key
-  }
-
   network_interface_ids = [
     azurerm_network_interface.nic-one.id
   ]
@@ -87,11 +82,6 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
   admin_username = var.linux_vm_username
 
   admin_password = var.linux_vm_admin_pass
-
-  admin_ssh_key {
-    username   = var.linux_vm_username
-    public_key = var.ssh_pub_key
-  }
 
   network_interface_ids = [
     azurerm_network_interface.nic-two.id
