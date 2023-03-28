@@ -52,7 +52,7 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
-
+  /*
   connection {
     type     = "ssh"
     user     = var.linux_vm_username
@@ -71,7 +71,7 @@ resource "azurerm_linux_virtual_machine" "vm-one" {
       "/tmp/install_nginx.sh VM01"
     ]
   }
-
+  */
 }
 
 resource "azurerm_linux_virtual_machine" "vm-two" {
@@ -100,7 +100,7 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
-
+  /*
   connection {
     type     = "ssh"
     user     = var.linux_vm_username
@@ -119,5 +119,6 @@ resource "azurerm_linux_virtual_machine" "vm-two" {
       "/tmp/install_nginx.sh VM02"
     ]
   }
+  */
 
 }
