@@ -7,14 +7,14 @@ resource "azurerm_virtual_network_gateway" "vngwone" {
 
 
   # User for VPN
-  # sku      = "VpnGw1"
-  # type     = "Vpn"
-  # vpn_type = "RouteBased"
+  sku      = "VpnGw1"
+  type     = "Vpn"
+  vpn_type = "RouteBased"
 
 
   # Used for ExpressRoute
-  sku  = "Standard"
-  type = "ExpressRoute"
+  # sku  = "Standard"
+  # type = "ExpressRoute"
 
   ip_configuration {
     subnet_id            = azurerm_subnet.gateway-subnet-one.id
